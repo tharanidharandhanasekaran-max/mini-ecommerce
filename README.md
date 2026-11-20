@@ -2,11 +2,6 @@
 
 A responsive mini e-commerce demo built with HTML, CSS and vanilla JavaScript.
 
-## Run locally
-1. Extract the ZIP file.
-2. Open the folder in VS Code.
-3. Open `index.html` with the Live Server extension (or open it directly in a browser).
-
 ## Features
 - 8 products rendered dynamically from a JavaScript array
 - Category filters and price sorting
