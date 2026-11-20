@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaCart — a simple, responsive mini e-commerce demo store.">
+  <title>NovaCart | Mini Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">FREE DELIVERY ON ORDERS ABOVE ₹500 <span>✦</span> THOUGHTFUL FINDS, EVERY DAY</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="NovaCart home"><span class="brand-mark">n</span> nova<span>cart</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a><a href="#why-us">Why NovaCart</a>
+    </nav>
+    <button class="cart-trigger" id="cart-trigger" aria-label="Open shopping cart">
+      <span class="bag-icon">▢</span><span>Cart</span><span class="cart-count" id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> THE EVERYDAY EDIT</p>
+        <h1>Little things.<br><em>Better living.</em></h1>
+        <p class="hero-description">Useful, beautiful essentials for your desk, your space, and everywhere in between.</p>
+        <a class="primary-button" href="#shop">Explore the collection <span>↗</span></a>
+        <div class="hero-note"><span class="note-star">✳</span><span>Curated with care<br><b>Made for everyday</b></span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative product collection">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="hero-sticker">GOOD<br>THINGS<br>INSIDE <span>✳</span></div>
+        <div class="hero-product product-vase"><div class="vase-neck"></div><div class="vase-body"></div><div class="vase-stem"></div></div>
+        <div class="hero-product product-book"><div></div><span>THE<br>DAILY<br>NOTE</span></div>
+        <div class="hero-product product-cup"><div class="cup-handle"></div></div>
+        <div class="hero-caption">THE NOVACART COLLECTION — 01</div>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE GOOD STUFF</p><h2>Find your <em>favourite.</em></h2></div>
+        <p class="section-intro">A small collection of things<br>that make a big difference.</p>
+      </div>
+      <div class="shop-toolbar">
+        <div class="filter-list" id="filters" aria-label="Filter products">
+          <button class="filter-btn active" data-category="All">All items <span id="all-count">8</span></button>
+          <button class="filter-btn" data-category="Desk">Desk</button>
+          <button class="filter-btn" data-category="Home">Home</button>
+          <button class="filter-btn" data-category="Accessories">Accessories</button>
+        </div>
+        <label class="sort-control">Sort by
+          <select id="sort-select" aria-label="Sort products">
+            <option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option>
+          </select>
+        </label>
+      </div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="why-section" id="why-us">
+      <div class="why-symbol">✳</div><p class="eyebrow">A LITTLE MORE THOUGHTFUL</p>
+      <h2>Good design should<br><em>feel like everyday.</em></h2>
+      <p>We believe the objects around us can make ordinary moments feel a little more special. That's the idea behind every NovaCart pick.</p>
+      <div class="why-points"><span>✦ Carefully selected</span><span>✦ Easy everyday essentials</span><span>✦ Simple, honest pricing</span></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">n</span> nova<span>cart</span></a><p>Small things, thoughtfully chosen.</p><span>© 2026 NovaCart Demo Store</span></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your cart <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="close-cart" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-summary" id="cart-summary">
+      <div class="summary-line"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="summary-line"><span>Delivery</span><strong id="delivery">₹0</strong></div>
+      <div class="delivery-hint" id="delivery-hint"></div>
+      <div class="summary-line grand-total"><span>Total</span><strong id="grand-total">₹0</strong></div>
+      <button class="checkout-button" id="checkout-button">Continue to checkout <span>→</span></button>
+      <p class="demo-note">Demo checkout · No payment will be collected</p>
+    </div>
+  </aside>
+
+  <dialog class="checkout-dialog" id="checkout-dialog">
+    <button class="icon-button dialog-close" id="close-dialog" aria-label="Close checkout">×</button>
+    <div class="success-mark">✓</div><p class="eyebrow">ORDER PREVIEW</p><h2>Looking <em>good.</em></h2>
+    <p class="dialog-description">This is a demo checkout. No payment is taken and no order is placed.</p>
+    <div class="order-preview" id="order-preview"></div>
+    <div class="summary-line grand-total"><span>Order total</span><strong id="preview-total">₹0</strong></div>
+    <button class="checkout-button" id="finish-demo">Back to shopping</button>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
